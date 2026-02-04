@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>MFBC.Cli</AssemblyName>
+    <RootNamespace>MFBC.Cli</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MFBC.Core\MFBC.Core.csproj" />
+  </ItemGroup>
+
+</Project>

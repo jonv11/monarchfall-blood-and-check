@@ -1,0 +1,44 @@
+# .gitignore for .NET, VS Code, and common OS artifacts
+
+## .NET / Visual Studio
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+*.user
+*.userprefs
+*.csproj.user
+.vs/
+.vscode/settings.json
+.vscode/launch.json
+.vscode/tasks.json
+
+## dotnet / NuGet
+*.nupkg
+*.nuspec
+.nuget/
+project.lock.json
+project.fragment.lock.json
+packages/
+
+## Test artifacts
+TestResults/
+coverage/
+*.trx
+
+## OS artifacts
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+## IDE
+.idea/
+*.swp
+*.sln.iml
+
+## Temporary / local development
+*.tmp
+.env.local
