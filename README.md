@@ -44,6 +44,12 @@ Core infrastructure is in place. Next phases:
 
 For architectural context, see [architecture overview](docs/architecture/overview.md) and [decision records](docs/decisions/).
 
+## Contributing
+
+Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+**Jira Board:** https://jonv11.atlassian.net/jira/software/projects/MFBC/boards/1
+
 ## License
 
 MIT — See [LICENSE](LICENSE) for details.
