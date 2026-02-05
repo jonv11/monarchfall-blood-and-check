@@ -33,7 +33,8 @@ dotnet test
 
 - New logic requires tests in `MFBC.Core.Tests`
 - Layering rule: `MFBC.Core` must remain independent; `MFBC.Cli` depends on `MFBC.Core`
-- Design decisions go in `docs/decisions/` with ADR format
+- Architectural decisions go in [`docs/decisions/`](docs/decisions/) — see [ADR guide](docs/decisions/README.md)
+- Design decisions use the [ADR process](docs/decisions/README.md) and [template](docs/decisions/TEMPLATE.md)
 - English-only identifiers and comments
 
 See `.github/copilot-instructions.md` for agent guidance.

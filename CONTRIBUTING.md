@@ -98,9 +98,18 @@ See [Architecture Overview](docs/architecture/overview.md) for details.
 
 For architectural or design decisions:
 
-1. Create an ADR (Architectural Decision Record) in [`docs/decisions/`](docs/decisions/)
-2. Use the format from [`0001-project-scaffold.md`](docs/decisions/0001-project-scaffold.md)
-3. Include context, decision, rationale, and consequences
+1. Read [Architectural Decision Records guide](docs/decisions/README.md) to understand when and how to create ADRs
+2. Use the [ADR template](docs/decisions/TEMPLATE.md)
+3. File as `docs/decisions/NNNN-kebab-case-title.md` (increment the sequence number)
+4. Include: context, decision, rationale, consequences, alternatives considered
+5. Set status to `Proposed` and submit for review
+6. Update the [decision index](docs/decisions/README.md) once accepted
+
+**ADR Status Values:**
+- `Proposed` — Draft, open for discussion
+- `Accepted` — Approved and guides current development
+- `Deprecated` — No longer valid, but kept for context
+- `Superseded` — Replaced by another ADR (reference the new one)
 
 ## Questions or Help?
 
