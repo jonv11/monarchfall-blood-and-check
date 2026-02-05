@@ -1,0 +1,32 @@
+name: Dependency Security
+
+on:
+  schedule:
+    # Run monthly on the first day at 00:00 UTC
+    - cron: '0 0 1 * *'
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  dependency-check:
+    runs-on: ubuntu-latest
+    name: Scan Dependencies
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore MFBC.sln
+
+      - name: Check for NuGet vulnerabilities
+        run: dotnet list package --vulnerable --include-transitive

@@ -111,6 +111,10 @@ For architectural or design decisions:
 - `Deprecated` — No longer valid, but kept for context
 - `Superseded` — Replaced by another ADR (reference the new one)
 
+## Dependency Management
+
+See [Handling Dependency Updates](docs/DEPENDENCY_UPDATES.md) for guidance on reviewing and merging security and dependency update PRs created by Dependabot.
+
 ## Questions or Help?
 
 - **Issues:** Open an issue on GitHub for bugs or feature requests

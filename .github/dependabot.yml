@@ -1,0 +1,20 @@
+version: 2
+updates:
+  - package-ecosystem: "nuget"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+      day: "monday"
+      time: "00:00"
+    commit-message:
+      prefix: "chore(deps):"
+      include: "scope"
+    pull-request-branch-name:
+      separator: "-"
+    reviewers:
+      - "jonv11"
+    assignees:
+      - "jonv11"
+    labels:
+      - "dependencies"
+      - "chore"
