@@ -8,6 +8,8 @@ A chess roguelite engine with CLI-first architecture. Procedurally generated che
 
 ## Quick Start
 
+For detailed setup instructions, see [Local Development Setup Guide](docs/local-setup.md).
+
 ```bash
 # Build the project
 dotnet build

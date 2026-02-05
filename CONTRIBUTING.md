@@ -5,9 +5,10 @@ Thank you for your interest in contributing to **Monarchfall: Blood & Check**! T
 ## Getting Started
 
 1. **Fork and clone** the repository
-2. **Build the project:** `dotnet build`
-3. **Run tests:** `dotnet test`
-4. **Explore the docs:** See [`docs/architecture/`](docs/architecture/) and [`docs/decisions/`](docs/decisions/)
+2. **See [Local Development Setup Guide](docs/local-setup.md)** for platform-specific setup
+3. **Build the project:** `dotnet build`
+4. **Run tests:** `dotnet test`
+5. **Explore the docs:** See [`docs/architecture/`](docs/architecture/) and [`docs/decisions/`](docs/decisions/)
 
 ## Project Management
 
