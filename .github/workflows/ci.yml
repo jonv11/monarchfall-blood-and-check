@@ -19,13 +19,22 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore MFBC.sln
 
       - name: Check code formatting
-        run: dotnet format --verify-no-changes --verbosity diagnostic
+        run: dotnet format MFBC.sln --verify-no-changes --verbosity diagnostic
 
       - name: Build
-        run: dotnet build --no-restore --configuration Release
+        run: dotnet build MFBC.sln --no-restore --configuration Release
 
-      - name: Run tests
-        run: dotnet test --no-build --verbosity normal --configuration Release
+      - name: Run tests with coverage
+        run: dotnet test MFBC.sln --no-build --verbosity normal --configuration Release --collect:"XPlat Code Coverage" --results-directory ./TestResults
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          files: ./TestResults/**/coverage.cobertura.xml
+          fail_ci_if_error: true
+          verbose: true
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

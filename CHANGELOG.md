@@ -2,6 +2,13 @@
 
 All notable changes to Monarchfall: Blood & Check are documented in this file.
 
+## [Unreleased]
+
+### Added
+
+- Codecov coverage reporting in CI with coverage badge
+- Coverage threshold policy documentation (80% minimum, hard-fail PR checks)
+
 ## [0.0.0] — 2026-02-04
 
 ### Added
