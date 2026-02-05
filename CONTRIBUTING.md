@@ -74,10 +74,12 @@ See [Architecture Overview](docs/architecture/overview.md) for details.
 
 ## Code Standards
 
+- **Naming & Style:** Follow the [Naming Conventions & Style Guide](docs/naming-conventions.md)
 - **Language:** English only for identifiers, comments, and documentation
 - **Warnings:** Treat warnings as errors (enforced by `Directory.Build.props`)
 - **Nullable:** Nullable reference types are enabled project-wide
 - **Documentation:** Public APIs should have XML doc comments
+- **Formatting:** Run `dotnet format` before committing
 
 ## Decision Making
 
