@@ -87,6 +87,12 @@ See [Architecture Overview](docs/architecture/overview.md) for details.
 - **Documentation:** Public APIs should have XML doc comments
 - **Formatting:** Run `dotnet format` before committing
 
+## Coverage Policy
+
+- **Minimum coverage target:** 80% overall coverage for the default branch
+- **PR gating:** Coverage status checks are **hard-fail** for PRs targeting `main`
+- Coverage is reported via Codecov in CI and must pass before merge
+
 ## Decision Making
 
 For architectural or design decisions:

@@ -1,5 +1,7 @@
 # Monarchfall: Blood & Check
 
+[![codecov](https://codecov.io/github/jonv11/monarchfall-blood-and-check/graph/badge.svg?token=OL2BRLKZZ8)](https://codecov.io/github/jonv11/monarchfall-blood-and-check)
+
 A chess roguelite engine with CLI-first architecture. Procedurally generated chessboards, dynamic rules, and permadeath progression—exploring the convergence of chess mechanics and roguelike design.
 
 **Current Status:** Scaffold only. Initial project structure and build infrastructure ready for development.
