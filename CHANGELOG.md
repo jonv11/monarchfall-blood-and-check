@@ -9,6 +9,8 @@ All notable changes to Monarchfall: Blood & Check are documented in this file.
 - Codecov coverage reporting in CI with coverage badge
 - Coverage threshold policy documentation (80% minimum, hard-fail PR checks)
 - Local Development Setup Guide with platform-specific instructions and troubleshooting
+- ADR process guide with standardized template and status values
+- Decision index for all architectural decision records
 
 ## [0.0.0] — 2026-02-04
 
