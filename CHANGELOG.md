@@ -11,6 +11,9 @@ All notable changes to Monarchfall: Blood & Check are documented in this file.
 - Local Development Setup Guide with platform-specific instructions and troubleshooting
 - ADR process guide with standardized template and status values
 - Decision index for all architectural decision records
+- Dependabot configuration for monthly NuGet dependency updates
+- Dependency security scanning via GitHub and Dependabot
+- Dependency update review and merge process documentation
 
 ## [0.0.0] — 2026-02-04
 

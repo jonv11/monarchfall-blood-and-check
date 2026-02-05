@@ -55,6 +55,10 @@ Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines
 
 **Jira Board:** https://jonv11.atlassian.net/jira/software/projects/MFBC/boards/1
 
+### Security
+
+See [DEPENDENCY_UPDATES.md](docs/DEPENDENCY_UPDATES.md) for information about dependency updates and vulnerability handling.
+
 ## License
 
 MIT — See [LICENSE](LICENSE) for details.
