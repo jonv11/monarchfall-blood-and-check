@@ -41,7 +41,9 @@ git checkout -b fix/MFBC-456-movement-bug
 ### 2. Make Changes
 
 - Follow the `.editorconfig` style rules
-- Run `dotnet format` before committing (if available)
+- **Format code before committing:** Run `dotnet format` to auto-correct formatting
+  - The CI pipeline will verify formatting with `dotnet format --verify-no-changes`
+  - If formatting check fails in CI, run `dotnet format` locally and commit the changes
 - Keep commits small and focused
 - Write descriptive commit messages:
   - `feat(core): add piece movement validation (MFBC-123)`
@@ -60,7 +62,11 @@ git checkout -b fix/MFBC-456-movement-bug
 - Open a PR against `main`
 - Reference the Jira issue: `Resolves MFBC-123` or `Fixes MFBC-456`
 - Provide a clear description of changes
-- Ensure CI checks pass (build + test)
+- Ensure all CI checks pass:
+  - **Code formatting:** `dotnet format --verify-no-changes`
+  - **Build:** `dotnet build --configuration Release` with no warnings
+  - **Tests:** `dotnet test --configuration Release` passes
+- If formatting check fails, run `dotnet format` locally and push the changes
 
 ## Architecture Rules
 
