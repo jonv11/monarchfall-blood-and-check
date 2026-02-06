@@ -55,6 +55,20 @@ Consumes `MFBC.Core` to:
 - No multiplayer or networking
 - No asset pipeline
 
+## Technical Design Documents
+
+Detailed technical decisions guiding implementation:
+
+- [Core Domain Model](../core-domain-model.md) — Sparse board, tiles, pieces, and core invariants
+- [Core ↔ CLI Contract](../core-cli-contract.md) — API surface, structured data contract
+- [Move Representation](../move-representation.md) — Action model, validation, and special moves
+- [Rule Engine Design](../rule-engine-design.md) — Phased pipeline, rule categories, deterministic execution
+- [Events, Effects, and Mutation](../events-effects-mutation.md) — Event-driven state changes
+- [RNG and Determinism](../rng-determinism-replay.md) — Named RNG streams, replay strategy
+- [Serialization](../serialization-save-load.md) — Save format, versioning policy
+- [Testing Strategy](../testing-strategy.md) — Golden runs, replay tests, coverage requirements
+- [Dependency Boundaries](../dependency-boundaries.md) — BCL-only Core, layering enforcement
+
 ## Future Modules (Placeholder)
 
 As the project grows:

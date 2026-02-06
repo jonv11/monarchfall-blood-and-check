@@ -51,6 +51,20 @@ Core infrastructure is in place. Next phases:
 
 For architectural context, see [architecture overview](docs/architecture/overview.md) and [decision records](docs/decisions/).
 
+## Technical Foundation
+
+Before implementation, comprehensive technical decisions have been documented:
+
+- [Core Domain Model](docs/core-domain-model.md) — Board, tiles, pieces, and invariants
+- [Core ↔ CLI Contract](docs/core-cli-contract.md) — API surface and responsibilities
+- [Move Representation](docs/move-representation.md) — Action model and validation flow
+- [Rule Engine Design](docs/rule-engine-design.md) — Phased execution and rule categories
+- [Events, Effects, and Mutation](docs/events-effects-mutation.md) — State change model
+- [RNG and Determinism](docs/rng-determinism-replay.md) — Seed strategy and replay
+- [Serialization](docs/serialization-save-load.md) — Save/load and versioning
+- [Testing Strategy](docs/testing-strategy.md) — Test categories and determinism guarantees
+- [Dependency Boundaries](docs/dependency-boundaries.md) — Layering enforcement
+
 ## Contributing
 
 Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
