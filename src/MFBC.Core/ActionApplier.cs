@@ -36,9 +36,19 @@ public sealed class ActionApplier
             return ApplyResult.Failure(new ApplyError("actor_missing", $"Actor piece not found: {action.ActorId}."));
         }
 
+        if (!state.Board.HasTile(action.From))
+        {
+            return ApplyResult.Failure(new ApplyError("origin_missing", $"Origin tile does not exist: {action.From}."));
+        }
+
         if (piece.Position != action.From)
         {
             return ApplyResult.Failure(new ApplyError("actor_position_mismatch", "Actor position does not match action origin."));
+        }
+
+        if (action.From == action.To)
+        {
+            return ApplyResult.Failure(new ApplyError("no_op_move", "Action destination matches origin."));
         }
 
         if (!state.Board.HasTile(action.To))

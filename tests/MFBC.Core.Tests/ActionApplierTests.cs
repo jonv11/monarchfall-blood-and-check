@@ -23,6 +23,12 @@ public class ActionApplierTests
     }
 
     [Fact]
+    public void ApplyAction_Throws_WhenActorIdEmpty()
+    {
+        Assert.Throws<ArgumentException>(() => new MoveAction(Guid.Empty, new Coord(0, 0), new Coord(1, 0)));
+    }
+
+    [Fact]
     public void ApplyAction_ReturnsError_WhenActorMissing()
     {
         var applier = new ActionApplier();
@@ -36,7 +42,7 @@ public class ActionApplierTests
     }
 
     [Fact]
-    public void ApplyAction_ReturnsError_WhenActorPositionMismatch()
+    public void ApplyAction_ReturnsError_WhenOriginMissing()
     {
         var applier = new ActionApplier();
         var state = CreateStateWithSinglePiece(out var piece);
@@ -45,7 +51,33 @@ public class ActionApplierTests
         var result = applier.ApplyAction(state, action);
 
         Assert.False(result.IsSuccess);
+        Assert.Contains(result.Errors, e => e.Code == "origin_missing");
+    }
+
+    [Fact]
+    public void ApplyAction_ReturnsError_WhenActorPositionMismatch()
+    {
+        var applier = new ActionApplier();
+        var state = CreateStateWithSinglePiece(out var piece);
+        var action = new MoveAction(piece.Id, new Coord(1, 0), new Coord(0, 0));
+
+        var result = applier.ApplyAction(state, action);
+
+        Assert.False(result.IsSuccess);
         Assert.Contains(result.Errors, e => e.Code == "actor_position_mismatch");
+    }
+
+    [Fact]
+    public void ApplyAction_ReturnsError_WhenNoOpMove()
+    {
+        var applier = new ActionApplier();
+        var state = CreateStateWithSinglePiece(out var piece);
+        var action = new MoveAction(piece.Id, piece.Position, piece.Position);
+
+        var result = applier.ApplyAction(state, action);
+
+        Assert.False(result.IsSuccess);
+        Assert.Contains(result.Errors, e => e.Code == "no_op_move");
     }
 
     [Fact]
@@ -115,6 +147,7 @@ public class ActionApplierTests
 
         Assert.False(result.IsSuccess);
         Assert.Contains(result.Errors, e => e.Code == "unsupported_action");
+        Assert.Equal(piece.Position, state.Pieces[piece.Id].Position);
     }
 
     private static GameState CreateStateWithSinglePiece(out Piece piece)
