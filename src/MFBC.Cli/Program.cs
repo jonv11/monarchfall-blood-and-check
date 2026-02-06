@@ -11,7 +11,10 @@ class Program
         Console.WriteLine("=================================");
         Console.WriteLine();
 
-        var gameState = new GameState();
+        // TODO: Replace with proper run initialization once the action pipeline exists.
+        var board = new Board();
+        board.AddTile(new Tile(new Coord(0, 0)));
+        var gameState = new GameState(board);
         Console.WriteLine(gameState.GetStatus());
     }
 }
