@@ -59,6 +59,7 @@ public static class MoveLegality
 
     private static ApplyError? ValidateDestination(GameState state, Piece piece, Coord to)
     {
+        // Destination existence is validated earlier in ApplyAction.
         if (state.TryGetPieceAt(to, out var occupant) && occupant is not null && occupant.Side == piece.Side)
         {
             return new ApplyError("destination_ally", "Destination is occupied by an allied piece.");

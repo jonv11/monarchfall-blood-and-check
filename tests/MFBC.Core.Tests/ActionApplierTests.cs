@@ -137,6 +137,7 @@ public class ActionApplierTests
 
         Assert.True(result.IsSuccess);
         Assert.False(state.Pieces.ContainsKey(target.Id));
+        Assert.False(target.IsAlive);
         Assert.Equal(to, mover.Position);
     }
 
