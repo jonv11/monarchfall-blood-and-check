@@ -56,6 +56,17 @@ public sealed class ActionApplier
             return ApplyResult.Failure(new ApplyError("destination_missing", $"Destination tile does not exist: {action.To}."));
         }
 
+        var legalityError = MoveLegality.Validate(state, piece, action.From, action.To);
+        if (legalityError is not null)
+        {
+            return ApplyResult.Failure(legalityError);
+        }
+
+        if (state.TryGetPieceAt(action.To, out var occupant) && occupant is not null && occupant.Side != piece.Side)
+        {
+            state.RemovePiece(occupant.Id);
+        }
+
         try
         {
             state.Board.MovePiece(piece, action.To);

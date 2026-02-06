@@ -33,6 +33,29 @@ public sealed class GameState
     public IReadOnlyDictionary<Guid, Piece> Pieces => _pieces;
 
     /// <summary>
+    /// Attempts to get a piece at the given coordinate.
+    /// </summary>
+    /// <param name="coord">Coordinate to inspect.</param>
+    /// <param name="piece">Piece at the coordinate, if found.</param>
+    public bool TryGetPieceAt(Coord coord, out Piece? piece)
+    {
+        if (!Board.HasTile(coord))
+        {
+            piece = null;
+            return false;
+        }
+
+        var tile = Board.GetTile(coord);
+        if (!tile.IsOccupied)
+        {
+            piece = null;
+            return false;
+        }
+
+        return _pieces.TryGetValue(tile.OccupantId!.Value, out piece);
+    }
+
+    /// <summary>
     /// Adds a piece to the game state and places it on the board.
     /// </summary>
     /// <param name="piece">Piece to add.</param>
@@ -51,6 +74,30 @@ public sealed class GameState
 
         Board.PlacePiece(piece, allowNonEnterable);
         _pieces[piece.Id] = piece;
+    }
+
+    /// <summary>
+    /// Removes a piece from the game state.
+    /// </summary>
+    /// <param name="pieceId">Piece identifier.</param>
+    public void RemovePiece(Guid pieceId)
+    {
+        if (!_pieces.TryGetValue(pieceId, out var piece))
+        {
+            throw new InvalidOperationException($"Piece with id {pieceId} does not exist.");
+        }
+
+        if (Board.HasTile(piece.Position))
+        {
+            var tile = Board.GetTile(piece.Position);
+            if (tile.OccupantId == piece.Id)
+            {
+                tile.SetOccupant(null);
+            }
+        }
+
+        piece.Kill();
+        _pieces.Remove(piece.Id);
     }
 
     /// <summary>
