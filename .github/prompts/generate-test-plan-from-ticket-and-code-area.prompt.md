@@ -1,72 +1,45 @@
-# Prompt: Generate Test Plan From Ticket + Code Area
-
-## Context
-You are producing a test plan for a Jira ticket in Monarchfall: Blood & Check (MFBC). The plan must align with MFBC guidelines, conventions, and good practices in that order.
-
-## Goal
-Create a test plan tied to the ticket scope and code area, prioritizing guidelines -> conventions -> good practices.
-
-## Scope (In / Out)
-### In
-- Identify unit, integration, and manual test items as applicable.
-- Define coverage expectations and key assertions.
-- Propose test file/class names aligned to MFBC naming conventions.
-- Provide a minimal list of required test commands.
-- Include relevant `acli`, `git`, or `gh` commands to access or create required artifacts.
-
-### Out
-- Writing tests or running test commands.
-
-## Inputs
-- Jira ticket summary and description
-- Target code area/modules
-- Existing tests or patterns
-- Known risks or edge cases
-
-## Output / Deliverables
-- Test plan with unit/integration/manual test items
-- Coverage expectations and key assertions
-- Proposed test file/class names following conventions
-- Minimal list of required test commands
-
-## Acceptance Criteria
-- Output explicitly prioritizes guidelines -> conventions -> good practices.
-- Test plan is specific and tied to ticket scope.
-- Proposed names follow MFBC naming conventions.
-- Includes negative and edge cases where applicable.
-- Includes CLI smoke tests only if relevant.
-- Output is actionable and concise.
-- Includes relevant `acli`, `git`, or `gh` commands to access or create required artifacts.
-
-## Implementation Notes
-- Ask at most two clarifying questions if critical info is missing.
-- Do not invent requirements or fake coverage metrics.
-- Prefer existing test patterns in MFBC.Core.Tests when relevant.
-
-## Validation
-- Apply to two tickets and confirm plan can be executed without major gaps.
-
+---
+name: generate-test-plan-from-ticket-and-code-area
+description: Create a test plan from a Jira ticket and code area aligned to MFBC conventions.
+argument-hint: key="MFBC-###" area="..." patterns="..." risks="..."
 ---
 
-## Prompt
-You are creating an MFBC test plan from a Jira ticket and code area. Prioritize: guidelines -> conventions -> good practices.
+You are producing a test plan for a Jira ticket in Monarchfall: Blood & Check (MFBC).
+
+Follow MFBC standards in this priority order: guidelines -> conventions -> good practices.
 
 If critical info is missing, ask at most two clarifying questions. Do not invent requirements or fake coverage metrics.
 
-Inputs:
-- Jira ticket summary and description:
-- Target code area/modules:
-- Existing tests or patterns:
-- Known risks or edge cases:
+Be interactive and action-oriented:
+- Fetch the ticket via `acli` when a key is provided.
+- Draft the test plan with names and commands.
+- Before posting the plan to Jira, show a compact preview and ask for confirmation.
+- After confirmation, execute the action and report results.
+
+Inputs (use ${input:...} variables):
+- Jira ticket key: ${input:key}
+- Target code area/modules: ${input:area}
+- Existing tests or patterns: ${input:patterns}
+- Known risks or edge cases: ${input:risks}
+
+Interactive flow (follow in order):
+1) Fetch the ticket: `acli jira workitem view ${input:key}`
+2) Draft the test plan and proposed test names.
+3) Show a compact preview (test items + key assertions).
+4) Ask for confirmation to add the plan as a Jira comment or update the ticket.
+5) On confirmation, run the `acli` action and report the result.
 
 Produce the output in this order:
 1) Test plan (unit/integration/manual items)
 2) Coverage expectations and key assertions
 3) Proposed test file/class names following MFBC conventions
 4) Minimal list of required test commands
-5) Relevant commands (`acli`, `git`, `gh`) to access or create required artifacts
+5) Action plan (exact `acli` commands to run after confirmation)
 
 Acceptance criteria reminders:
-- Guidelines -> conventions -> good practices is explicit.
-- Plan is specific to ticket scope and includes edge cases when applicable.
+- Explicitly state the guidelines -> conventions -> good practices priority.
+- Test plan is specific and tied to ticket scope.
+- Proposed names follow MFBC naming conventions.
+- Includes negative and edge cases where applicable.
+- Includes CLI smoke tests only if relevant.
 - Output is actionable and concise.
