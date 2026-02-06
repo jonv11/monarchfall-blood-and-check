@@ -14,6 +14,7 @@ All notable changes to Monarchfall: Blood & Check are documented in this file.
 - Dependabot configuration for monthly NuGet dependency updates
 - Dependency security scanning via GitHub and Dependabot
 - Dependency update review and merge process documentation
+- Prompt for drafting CHANGELOG and ADR updates from completed work
 - Prompt for CI failure triage summaries and next actions
 - Prompt for test planning from tickets and code areas
 - Prompt for implementation planning from tickets
