@@ -26,6 +26,8 @@ All notable changes to Monarchfall: Blood & Check are documented in this file.
 - Prompt for generating subtasks from parent tickets
 - Prompt for Jira ticket readiness reviews
 - Prompt for drafting Jira tickets from raw notes
+- CLI uses Spectre.Console.Cli and Spectre.Console for command parsing and rendering
+- CLI commands: new, show, play (session-based, minimal v0 workflow)
 
 ## [0.0.0] — 2026-02-04
 

@@ -76,6 +76,7 @@ Link to other ADRs or documentation that relate to or depend on this decision.
 | # | Title | Date | Status |
 |---|-------|------|--------|
 | [0001](0001-project-scaffold.md) | Project Scaffold and Architecture | 2026-02-04 | Accepted |
+| [0002](0002-cli-library.md) | CLI Parsing and Rendering Library | 2026-02-06 | Accepted |
 
 ## Process
 
