@@ -39,6 +39,8 @@ dotnet test
 
 See `.github/copilot-instructions.md` for agent guidance.
 
+For AI agents working on MFBC, see [AI Prompt Crafting Guidelines](docs/prompt-crafting-guide.md) for best practices on crafting high-quality prompts with grounding, verification checkpoints, and hallucination prevention.
+
 ## Roadmap
 
 Core infrastructure is in place. Next phases:
