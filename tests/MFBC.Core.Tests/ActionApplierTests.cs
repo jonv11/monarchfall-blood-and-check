@@ -99,12 +99,13 @@ public class ActionApplierTests
         var applier = new ActionApplier();
         var board = new Board();
         var from = new Coord(0, 0);
-        var to = new Coord(1, 0);
+        var to = new Coord(0, 2);
         board.AddTile(new Tile(from));
+        board.AddTile(new Tile(new Coord(0, 1)));
         board.AddTile(new Tile(to));
         var state = new GameState(board);
         var mover = new Piece(Guid.NewGuid(), PieceType.Rook, Side.White, from);
-        var blocker = new Piece(Guid.NewGuid(), PieceType.King, Side.Black, to);
+        var blocker = new Piece(Guid.NewGuid(), PieceType.King, Side.White, to);
         state.AddPiece(mover);
         state.AddPiece(blocker);
         var action = new MoveAction(mover.Id, from, to);
@@ -112,7 +113,54 @@ public class ActionApplierTests
         var result = applier.ApplyAction(state, action);
 
         Assert.False(result.IsSuccess);
-        Assert.Contains(result.Errors, e => e.Code == "move_invalid");
+        Assert.Contains(result.Errors, e => e.Code == "destination_ally");
+    }
+
+    [Fact]
+    public void ApplyAction_CapturesEnemy_WhenDestinationOccupied()
+    {
+        var applier = new ActionApplier();
+        var board = new Board();
+        var from = new Coord(0, 0);
+        var to = new Coord(0, 3);
+        board.AddTile(new Tile(from));
+        board.AddTile(new Tile(new Coord(0, 1)));
+        board.AddTile(new Tile(new Coord(0, 2)));
+        board.AddTile(new Tile(to));
+        var state = new GameState(board);
+        var mover = new Piece(Guid.NewGuid(), PieceType.Rook, Side.White, from);
+        var target = new Piece(Guid.NewGuid(), PieceType.King, Side.Black, to);
+        state.AddPiece(mover);
+        state.AddPiece(target);
+
+        var result = applier.ApplyAction(state, new MoveAction(mover.Id, from, to));
+
+        Assert.True(result.IsSuccess);
+        Assert.False(state.Pieces.ContainsKey(target.Id));
+        Assert.False(target.IsAlive);
+        Assert.Equal(to, mover.Position);
+    }
+
+    [Fact]
+    public void ApplyAction_Rejects_WhenDestinationOccupiedByAlly()
+    {
+        var applier = new ActionApplier();
+        var board = new Board();
+        var from = new Coord(0, 0);
+        var to = new Coord(0, 2);
+        board.AddTile(new Tile(from));
+        board.AddTile(new Tile(new Coord(0, 1)));
+        board.AddTile(new Tile(to));
+        var state = new GameState(board);
+        var mover = new Piece(Guid.NewGuid(), PieceType.Rook, Side.White, from);
+        var ally = new Piece(Guid.NewGuid(), PieceType.King, Side.White, to);
+        state.AddPiece(mover);
+        state.AddPiece(ally);
+
+        var result = applier.ApplyAction(state, new MoveAction(mover.Id, from, to));
+
+        Assert.False(result.IsSuccess);
+        Assert.Contains(result.Errors, e => e.Code == "destination_ally");
     }
 
     [Fact]
