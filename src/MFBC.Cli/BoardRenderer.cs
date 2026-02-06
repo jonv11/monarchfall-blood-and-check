@@ -16,6 +16,8 @@ internal static class BoardRenderer
             table.AddColumn(((char)('a' + x)).ToString());
         }
 
+        // TODO: This assumes a fixed 8x8 board for v0 CLI output.
+        // Extend to render sparse or non-rectangular boards when Core supports it.
         for (var y = 7; y >= 0; y--)
         {
             var row = new List<string> { (y + 1).ToString() };

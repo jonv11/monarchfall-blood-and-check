@@ -15,7 +15,7 @@ internal sealed class NewCommand : Command<NewSettings>
         AnsiConsole.MarkupLine("[green]Session created.[/]");
         BoardRenderer.Render(state);
 
-        if (!settings.Interactive)
+        if (settings.NoInteractive || !settings.Interactive)
         {
             return 0;
         }
@@ -38,7 +38,7 @@ internal sealed class NewCommand : Command<NewSettings>
             if (line.StartsWith("play ", StringComparison.OrdinalIgnoreCase))
             {
                 var moveText = line[5..].Trim();
-                _ = ApplyMove(state, moveText);
+                _ = ApplyMove(state, moveText, interactive: true);
                 continue;
             }
 
@@ -48,19 +48,19 @@ internal sealed class NewCommand : Command<NewSettings>
         return 0;
     }
 
-    private static int ApplyMove(GameState state, string moveText)
+    private static int ApplyMove(GameState state, string moveText, bool interactive)
     {
         if (!MoveParser.TryParseMove(moveText, out var from, out var to))
         {
             AnsiConsole.MarkupLine("[red]Invalid move format. Use e2e4.[/]");
-            return 1;
+            return interactive ? 0 : 1;
         }
 
         var piece = state.Pieces.Values.FirstOrDefault(p => p.Position == from);
         if (piece is null)
         {
             AnsiConsole.MarkupLine("[red]No piece at origin.[/]");
-            return 1;
+            return interactive ? 0 : 1;
         }
 
         var applier = new ActionApplier();
@@ -72,16 +72,34 @@ internal sealed class NewCommand : Command<NewSettings>
                 AnsiConsole.MarkupLine($"[red]{error.Code}[/]: {error.Message}");
             }
 
-            return 1;
+            return interactive ? 0 : 1;
+        }
+
+        foreach (var gameEvent in result.Events)
+        {
+            if (gameEvent is MovedEvent moved)
+            {
+                AnsiConsole.MarkupLine($"[green]Moved[/] {FormatCoord(moved.From)} -> {FormatCoord(moved.To)}");
+            }
         }
 
         BoardRenderer.Render(state);
         return 0;
+    }
+
+    private static string FormatCoord(Coord coord)
+    {
+        var file = (char)('a' + coord.X);
+        var rank = (char)('1' + coord.Y);
+        return $"{file}{rank}";
     }
 }
 
 internal sealed class NewSettings : CommandSettings
 {
     [CommandOption("--interactive")]
-    public bool Interactive { get; init; } = true;
+    public bool Interactive { get; init; }
+
+    [CommandOption("--no-interactive")]
+    public bool NoInteractive { get; init; }
 }

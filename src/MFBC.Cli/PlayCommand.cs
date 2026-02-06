@@ -51,8 +51,23 @@ internal sealed class PlayCommand : Command<PlaySettings>
             return 1;
         }
 
+        foreach (var gameEvent in result.Events)
+        {
+            if (gameEvent is MovedEvent moved)
+            {
+                AnsiConsole.MarkupLine($"[green]Moved[/] {FormatCoord(moved.From)} -> {FormatCoord(moved.To)}");
+            }
+        }
+
         BoardRenderer.Render(state);
         return 0;
+    }
+
+    private static string FormatCoord(Coord coord)
+    {
+        var file = (char)('a' + coord.X);
+        var rank = (char)('1' + coord.Y);
+        return $"{file}{rank}";
     }
 }
 
