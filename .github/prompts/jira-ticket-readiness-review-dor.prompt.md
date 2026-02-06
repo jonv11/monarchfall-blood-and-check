@@ -1,67 +1,43 @@
-# Prompt: Jira Ticket Readiness Review (DoR)
-
-## Context
-You are reviewing a Jira ticket for Monarchfall: Blood & Check (MFBC) to confirm it is ready to start work. The output must follow MFBC conventions and be suitable for a Jira comment or update.
-
-## Goal
-Review a ticket for readiness using MFBC's priority order (guidelines -> conventions -> good practices) and produce a concise readiness report.
-
-## Scope (In / Out)
-### In
-- Analyze ticket fields and description to identify gaps, risks, and required clarifications.
-- Produce a readiness verdict and actionable next steps.
-- Include relevant `acli`, `git`, or `gh` commands to access or create required artifacts.
-
-### Out
-- Estimation, prioritization, or implementation decisions.
-
-## Inputs
-- Jira ticket content (summary, description, fields)
-- Current sprint goals (if relevant)
-- Linked issues or dependencies (if known)
-
-## Output / Deliverables
-- Readiness verdict: Ready / Needs Info / Blocked
-- Missing information list (actionable)
-- Proposed edits to the ticket (concise, mapped to sections)
-- Suggested follow-up questions (minimal)
-
-## Acceptance Criteria
-- Output explicitly prioritizes guidelines -> conventions -> good practices.
-- Verdict is explicit and justified.
-- Missing info is specific and actionable.
-- Proposed edits map to ticket sections.
-- Output is brief and suitable for a Jira comment or update.
-- Includes relevant `acli`, `git`, or `gh` commands to access or create required artifacts.
-
-## Implementation Notes
-- Ask at most two clarifying questions if critical info is missing.
-- Do not invent requirements.
-- Keep recommendations aligned to MFBC conventions.
-
-## Validation
-- Run on three existing tickets and confirm it flags real gaps without over-asking.
-
+---
+name: jira-ticket-readiness-review-dor
+description: Review an MFBC Jira ticket for Definition of Ready and suggest edits.
+argument-hint: key="MFBC-###" sprint="..." links="..."
 ---
 
-## Prompt
-You are reviewing an MFBC Jira ticket for readiness. Prioritize: guidelines -> conventions -> good practices.
+You are reviewing a Jira ticket for Monarchfall: Blood & Check (MFBC) to confirm it is ready to start work.
+
+Follow MFBC standards in this priority order: guidelines -> conventions -> good practices.
 
 If critical info is missing, ask at most two clarifying questions. Do not invent requirements.
 
-Inputs:
-- Ticket content:
-- Sprint goals (if relevant):
-- Linked issues/dependencies:
+Be interactive and action-oriented:
+- Fetch the ticket via `acli` when a key is provided.
+- Produce a readiness verdict and proposed edits.
+- Before updating the ticket or posting a comment, show a compact preview and ask for confirmation.
+- After confirmation, execute the action and report results.
+
+Inputs (use ${input:...} variables):
+- Jira ticket key: ${input:key}
+- Sprint goals (if relevant): ${input:sprint}
+- Linked issues/dependencies (if known): ${input:links}
+
+Interactive flow (follow in order):
+1) Fetch the ticket: `acli jira workitem view ${input:key}`
+2) Analyze readiness and draft proposed edits/questions.
+3) Show a compact preview (verdict, top gaps, proposed edits).
+4) Ask for confirmation to post a Jira comment or update fields.
+5) On confirmation, run the `acli` action and report the result.
 
 Produce the output in this order:
 1) Readiness verdict: Ready / Needs Info / Blocked (with justification)
 2) Missing information (actionable list)
 3) Proposed edits mapped to ticket sections
 4) Follow-up questions (minimal)
-5) Relevant commands (`acli`, `git`, `gh`) to access or create required artifacts
+5) Action plan (exact `acli` commands to run after confirmation)
 
 Acceptance criteria reminders:
-- Guidelines -> conventions -> good practices is explicit.
-- Verdict is justified.
+- Explicitly state the guidelines -> conventions -> good practices priority.
+- Verdict is explicit and justified.
+- Missing info is specific and actionable.
+- Proposed edits map to ticket sections.
 - Output is brief and suitable for a Jira comment/update.
