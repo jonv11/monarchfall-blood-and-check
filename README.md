@@ -53,6 +53,8 @@ For architectural context, see [architecture overview](docs/architecture/overvie
 
 Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
+**Jira Conventions:** See [Jira Conventions & Process Guide](docs/jira-conventions.md) for issue types, workflow, and best practices for creating and managing work items.
+
 **Jira Board:** https://jonv11.atlassian.net/jira/software/projects/MFBC/boards/1
 
 ### Security
