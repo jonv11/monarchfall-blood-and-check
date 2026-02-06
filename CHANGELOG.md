@@ -14,6 +14,7 @@ All notable changes to Monarchfall: Blood & Check are documented in this file.
 - Dependabot configuration for monthly NuGet dependency updates
 - Dependency security scanning via GitHub and Dependabot
 - Dependency update review and merge process documentation
+- Prompt for Jira ticket readiness reviews
 - Prompt for drafting Jira tickets from raw notes
 
 ## [0.0.0] — 2026-02-04
