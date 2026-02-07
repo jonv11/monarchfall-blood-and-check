@@ -27,6 +27,9 @@ Use this index to find the right documentation module for your task or role.
 - [Testing Strategy](development/testing-strategy.md)
 - [Naming Conventions](development/naming-conventions.md)
 
+## Templates
+- [New Module Checklist](templates/new-module-checklist.md)
+
 ## Operations
 - [Dependency Updates](operations/dependency-updates.md)
 

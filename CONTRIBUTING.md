@@ -9,6 +9,7 @@ Thank you for your interest in contributing to **Monarchfall: Blood & Check**! T
 3. **Build the project:** `dotnet build`
 4. **Run tests:** `dotnet test`
 5. **Explore the docs:** See [`docs/architecture/`](docs/architecture/) and [`docs/decisions/`](docs/decisions/)
+6. **Adding a new module?** Use the [New Module Checklist](docs/templates/new-module-checklist.md)
 
 ## Project Management
 
