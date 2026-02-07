@@ -84,6 +84,7 @@ All temporary power, status, and behavior changes are expressed via effects or m
 - Any system that references positions must validate tile existence.
 - Forced tile removal events must declare deterministic occupant disposition.
 - Future rule expansions must remain compatible with the minimal core model.
+- Deterministic initialization must use explicit tile ordering and seed-derived random streams.
 
 ## Open Questions
 
