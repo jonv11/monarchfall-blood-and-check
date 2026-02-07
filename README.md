@@ -43,11 +43,12 @@ For AI agents working on MFBC, see [AI Prompt Crafting Guidelines](docs/agent/pr
 
 ## Roadmap
 
-Core infrastructure is in place. Next phases:
-- Rule engine and piece movement logic
-- Procedural board generation
-- Game state management and permadeath tracking
-- UI/visualization (beyond CLI)
+The architecture roadmap for the next 2-3 releases is maintained in [`docs/ROADMAP.md`](docs/ROADMAP.md).
+
+Current directional phases:
+- Phase 0: Scaffold
+- Phase 1: Core Rules
+- Phase 2: Procedural Generation
 
 For architectural context, see [architecture overview](docs/architecture/overview.md) and [decision records](docs/decisions/).
 

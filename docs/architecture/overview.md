@@ -26,6 +26,8 @@ The project follows a clean layering model:
 
 **Constraint:** `MFBC.Core` is dependency-free and never imports from `MFBC.Cli`.
 
+For milestone sequencing and module direction, see the [Architecture Roadmap](../ROADMAP.md).
+
 ## Core Module (`MFBC.Core`)
 
 Holds all domain logic:

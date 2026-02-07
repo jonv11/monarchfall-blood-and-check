@@ -11,6 +11,7 @@ Use this index to find the right documentation module for your task or role.
 - [Agent Text File Guide](core/text-file-agent.md)
 
 ## Architecture
+- [Architecture Roadmap](ROADMAP.md)
 - [Overview](architecture/overview.md)
 - [Core Domain Model](architecture/core-domain-model.md)
 - [Core to CLI Contract](architecture/core-cli-contract.md)
