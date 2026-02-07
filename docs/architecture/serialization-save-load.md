@@ -74,6 +74,15 @@ Policy:
 - Every schema change must include a migration path or explicit version bump.
 - Saves from future versions must fail cleanly.
 
+## Test Snapshot Serialization
+
+- `MFBC.Core` provides deterministic test snapshots through `GameStateSnapshotSerializer`.
+- Snapshot JSON is canonical and diff-friendly:
+  - stable property order
+  - stable collection ordering
+  - UTF-8 JSON with LF line endings
+- Snapshots include only gameplay-relevant deterministic state required for assertions.
+
 ## Open Questions
 
 - None in this document. Related questions may appear in testing or dependency boundary documents.
