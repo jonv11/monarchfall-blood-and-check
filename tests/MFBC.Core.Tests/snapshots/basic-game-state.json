@@ -1,0 +1,41 @@
+{
+  "version": "0.0.0",
+  "tiles": [
+    {
+      "x": 0,
+      "y": 0,
+      "enterable": true,
+      "occupantId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "enterable": true,
+      "occupantId": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "enterable": false,
+      "occupantId": null
+    }
+  ],
+  "pieces": [
+    {
+      "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+      "type": "Rook",
+      "side": "White",
+      "x": 0,
+      "y": 0,
+      "isAlive": true
+    },
+    {
+      "id": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+      "type": "King",
+      "side": "Black",
+      "x": 1,
+      "y": 0,
+      "isAlive": true
+    }
+  ]
+}
