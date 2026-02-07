@@ -5,7 +5,7 @@ Thank you for your interest in contributing to **Monarchfall: Blood & Check**! T
 ## Getting Started
 
 1. **Fork and clone** the repository
-2. **See [Local Development Setup Guide](docs/local-setup.md)** for platform-specific setup
+2. **See [Local Development Setup Guide](docs/development/local-setup.md)** for platform-specific setup
 3. **Build the project:** `dotnet build`
 4. **Run tests:** `dotnet test`
 5. **Explore the docs:** See [`docs/architecture/`](docs/architecture/) and [`docs/decisions/`](docs/decisions/)
@@ -81,7 +81,7 @@ See [Architecture Overview](docs/architecture/overview.md) for details.
 
 ## Code Standards
 
-- **Naming & Style:** Follow the [Naming Conventions & Style Guide](docs/naming-conventions.md)
+- **Naming & Style:** Follow the [Naming Conventions & Style Guide](docs/development/naming-conventions.md)
 - **Language:** English only for identifiers, comments, and documentation
 - **Warnings:** Treat warnings as errors (enforced by `Directory.Build.props`)
 - **Nullable:** Nullable reference types are enabled project-wide
@@ -113,7 +113,7 @@ For architectural or design decisions:
 
 ## Dependency Management
 
-See [Handling Dependency Updates](docs/DEPENDENCY_UPDATES.md) for guidance on reviewing and merging security and dependency update PRs created by Dependabot.
+See [Handling Dependency Updates](docs/operations/dependency-updates.md) for guidance on reviewing and merging security and dependency update PRs created by Dependabot.
 
 ## Questions or Help?
 

@@ -78,28 +78,3 @@ GitHub automatically alerts maintainers of known vulnerabilities in dependencies
 
 1. Check **Security** tab → **Dependabot alerts** on GitHub
 2. Review the advisory details
-3. Merge the corresponding Dependabot PR to remediate
-4. Verify the vulnerability is resolved
-
-## Best Practices
-
-- **Review regularly** — Check for Dependabot PRs weekly
-- **Test updates** — Ensure `dotnet build` and `dotnet test` pass
-- **Document breaking changes** — Update CHANGELOG if significant
-- **Keep main healthy** — Maintain a policy of not blocking main with stale PRs
-- **Communicate** — Note major upgrades in team channels or comments
-
-## Rollback
-
-If a dependency update introduces issues:
-
-1. Revert the PR
-2. Open an issue describing the problem
-3. Coordinate with maintainers on a fix or downgrade strategy
-4. Update the PR or create a new one with a workaround
-
-## Additional Scanning
-
-For now, we rely on Dependabot and GitHub's built-in security scanning. Future consideration:
-- Snyk integration for deeper vulnerability analysis
-- License scanning for compliance

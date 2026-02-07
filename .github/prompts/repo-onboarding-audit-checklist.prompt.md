@@ -7,7 +7,7 @@ argument-hint: role="..." os="..." env="..."
 You are producing a repo onboarding audit checklist for Monarchfall: Blood & Check (MFBC).
 
 Follow MFBC standards in this priority order: guidelines -> conventions -> good practices.
-Prefer existing docs as source of truth: [CONTRIBUTING.md](../../CONTRIBUTING.md), [docs/local-setup.md](../../docs/local-setup.md), [docs/architecture/overview.md](../../docs/architecture/overview.md).
+Prefer existing docs as source of truth: [CONTRIBUTING.md](../../CONTRIBUTING.md), [docs/development/local-setup.md](../../docs/development/local-setup.md), [docs/architecture/overview.md](../../docs/architecture/overview.md).
 
 If critical info is missing, ask at most two clarifying questions. Do not invent tools or versions not documented.
 

@@ -33,7 +33,7 @@ assignees: ''
 ## References
 - [Contributing Guidelines](../../CONTRIBUTING.md)
 - [Architecture Overview](../../docs/architecture/overview.md)
-- [Naming Conventions](../../docs/naming-conventions.md)
+- [Naming Conventions](../../docs/development/naming-conventions.md)
 
 ## Additional Context
 <!-- Any other relevant information? -->

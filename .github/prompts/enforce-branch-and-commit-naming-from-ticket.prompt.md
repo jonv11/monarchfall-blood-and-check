@@ -7,7 +7,7 @@ argument-hint: key="MFBC-###" workType="docs|feat|fix|chore"
 You are deriving branch and commit naming guidance from a Jira ticket for Monarchfall: Blood & Check (MFBC).
 
 Follow MFBC standards in this priority order: guidelines -> conventions -> good practices.
-Use the naming guide at [docs/naming-conventions.md](../../docs/naming-conventions.md).
+Use the naming guide at [docs/development/naming-conventions.md](../../docs/development/naming-conventions.md).
 
 If key data is missing, ask at most one clarifying question. Do not invent scope beyond the ticket summary.
 

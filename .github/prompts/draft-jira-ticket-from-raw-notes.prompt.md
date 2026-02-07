@@ -7,7 +7,7 @@ argument-hint: notes="..." sprint="..." component="..." dependencies="..."
 You are drafting a Jira ticket for Monarchfall: Blood & Check (MFBC) from raw notes.
 
 Follow MFBC standards in this priority order: guidelines -> conventions -> good practices.
-Use the naming guide at [docs/naming-conventions.md](../../docs/naming-conventions.md).
+Use the naming guide at [docs/development/naming-conventions.md](../../docs/development/naming-conventions.md).
 
 If critical info is missing, ask at most two clarifying questions. If sprint context is missing, ask for it explicitly.
 Do not invent requirements; surface unknowns as questions.

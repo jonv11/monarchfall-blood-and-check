@@ -198,13 +198,13 @@ Then kill the process or use a different port.
 
 ## Next Steps
 
-1. **Review the architecture:** See [Architecture Overview](architecture/overview.md)
-2. **Read contribution guidelines:** See [CONTRIBUTING.md](../CONTRIBUTING.md)
-3. **Check decision records:** See [docs/decisions/](decisions/)
+1. **Review the architecture:** See [Architecture Overview](../architecture/overview.md)
+2. **Read contribution guidelines:** See [CONTRIBUTING.md](../../CONTRIBUTING.md)
+3. **Check decision records:** See [docs/decisions/](../decisions/)
 4. **Pick an issue:** Visit the [Jira Board](https://jonv11.atlassian.net/jira/software/projects/MFBC/boards/1)
 
 ## Questions or Issues?
 
 - **Setup problems?** Open an issue on [GitHub](https://github.com/jonv11/monarchfall-blood-and-check/issues)
 - **Development questions?** Check the [Jira board](https://jonv11.atlassian.net/jira/software/projects/MFBC/boards/1) for context
-- **Architecture questions?** See [docs/architecture/](architecture/overview.md)
+- **Architecture questions?** See [docs/architecture/](../architecture/overview.md)
