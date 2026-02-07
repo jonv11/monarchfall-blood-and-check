@@ -1,0 +1,13 @@
+# Basic CODEOWNERS file for the repository
+# Format: <pattern> <owner> [<owner>...]
+
+# Default owner for the repository
+* @jonv11
+
+# Owners for specific areas
+/src/ @jonv11
+/tests/ @jonv11
+/docs/ @jonv11
+
+# Add additional teams or users as needed (example):
+# /MFBC.Cli/ @org/tooling-team
