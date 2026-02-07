@@ -36,6 +36,9 @@ Use this index to find the right documentation module for your task or role.
 ## CLI
 - [CLI Cheatsheet](cli/cli-cheatsheet.md)
 
+## Gameplay
+- [MVP Run Loop (v0)](gameplay/mvp-run-loop.md)
+
 ## Agent Prompting
 - [Prompt Crafting Guide](agent/prompt-crafting-guide.md)
 
