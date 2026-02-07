@@ -58,6 +58,14 @@ Applies to common contributor workflows for MFBC.
    git status
    ```
 
+9. **Validate CLI session persistence (when changing `new/show/play`):**
+   ```bash
+   dotnet run --project src/MFBC.Cli -- new --no-interactive
+   dotnet run --project src/MFBC.Cli -- show
+   dotnet run --project src/MFBC.Cli -- play e1e2
+   ```
+   Run each command as a separate process to verify disk-backed session continuity.
+
 ---
 
 ## Workflow 2: Push Code and Create a Pull Request
