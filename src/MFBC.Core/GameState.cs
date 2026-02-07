@@ -12,8 +12,19 @@ public sealed class GameState
     /// </summary>
     /// <param name="board">Board instance.</param>
     public GameState(Board board)
+        : this(board, new DeterministicRandomSource(0))
+    {
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="GameState"/> class.
+    /// </summary>
+    /// <param name="board">Board instance.</param>
+    /// <param name="randomSource">Deterministic random source used by core logic.</param>
+    public GameState(Board board, IRandomSource randomSource)
     {
         Board = board ?? throw new ArgumentNullException(nameof(board));
+        RandomSource = randomSource ?? throw new ArgumentNullException(nameof(randomSource));
         Version = "0.0.0";
     }
 
@@ -21,6 +32,11 @@ public sealed class GameState
     /// Gets the board for this game state.
     /// </summary>
     public Board Board { get; }
+
+    /// <summary>
+    /// Gets the deterministic random source associated with this game state.
+    /// </summary>
+    public IRandomSource RandomSource { get; }
 
     /// <summary>
     /// Gets the game version identifier.

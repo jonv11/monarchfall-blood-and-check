@@ -11,6 +11,24 @@ public class GameStateTests
     }
 
     [Fact]
+    public void GameState_Throws_WhenRandomSourceNull()
+    {
+        var board = new Board();
+
+        Assert.Throws<ArgumentNullException>(() => new GameState(board, null!));
+    }
+
+    [Fact]
+    public void GameState_UsesProvidedRandomSource()
+    {
+        var board = new Board();
+        var random = new DeterministicRandomSource(7UL);
+        var gameState = new GameState(board, random);
+
+        Assert.Same(random, gameState.RandomSource);
+    }
+
+    [Fact]
     public void GameState_GetStatus_ReturnsMessageWithVersion()
     {
         var board = new Board();
