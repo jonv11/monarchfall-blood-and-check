@@ -158,3 +158,33 @@ git branch -u origin/feature/MFBC-27-task-name  # or set after the fact
    - Avoid circular dependencies (e.g., `MFBC.Cli` should not reference `MFBC.Core`)
 
 **Prevention:** Run `dotnet build` and `dotnet test` before committing; address all warnings immediately.
+
+---
+
+## Issue 7: "No active session" or "Active session data is invalid"
+
+**Symptoms:** `mfbc show` or `mfbc play` returns:
+- `No active session. Run 'new' first.`
+- `Active session data is invalid. Run 'new' to reset.`
+
+**Solution:**
+
+1. **Create or reset active session:**
+   ```bash
+   dotnet run --project src/MFBC.Cli -- new --no-interactive
+   ```
+
+2. **Verify session continuity across separate invocations:**
+   ```bash
+   dotnet run --project src/MFBC.Cli -- show
+   dotnet run --project src/MFBC.Cli -- play e1e2
+   ```
+
+3. **If corruption persists, remove local session state:**
+   ```bash
+   # Windows PowerShell
+   Remove-Item -Recurse -Force .mfbc
+   ```
+   Then run `new` again.
+
+**Prevention:** Avoid manually editing `.mfbc/run-state.json` and ensure CLI commands can write to the workspace directory.

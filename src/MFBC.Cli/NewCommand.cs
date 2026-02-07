@@ -10,7 +10,15 @@ internal sealed class NewCommand : Command<NewSettings>
     public override int Execute(CommandContext context, NewSettings settings)
     {
         var state = DemoGameFactory.Create();
-        SessionStore.Set(state);
+        try
+        {
+            SessionStore.Save(state);
+        }
+        catch (Exception ex)
+        {
+            AnsiConsole.MarkupLine($"[red]Failed to persist session:[/] {ex.Message}");
+            return 1;
+        }
 
         AnsiConsole.MarkupLine("[green]Session created.[/]");
         BoardRenderer.Render(state);
@@ -84,6 +92,16 @@ internal sealed class NewCommand : Command<NewSettings>
         }
 
         BoardRenderer.Render(state);
+        try
+        {
+            SessionStore.Save(state);
+        }
+        catch (Exception ex)
+        {
+            AnsiConsole.MarkupLine($"[red]Failed to persist session:[/] {ex.Message}");
+            return interactive ? 0 : 1;
+        }
+
         return 0;
     }
 

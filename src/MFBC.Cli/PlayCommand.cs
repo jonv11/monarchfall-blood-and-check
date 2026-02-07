@@ -10,10 +10,15 @@ internal sealed class PlayCommand : Command<PlaySettings>
 {
     public override int Execute(CommandContext context, PlaySettings settings)
     {
-        var state = SessionStore.Current;
+        if (!SessionStore.TryLoad(out var state, out var errorMessage))
+        {
+            AnsiConsole.MarkupLine($"[red]{errorMessage}[/]");
+            return 1;
+        }
+
         if (state is null)
         {
-            AnsiConsole.MarkupLine("[red]No active session. Run 'new' first.[/]");
+            AnsiConsole.MarkupLine("[red]Active session data is invalid. Run 'new' to reset.[/]");
             return 1;
         }
 
@@ -57,6 +62,16 @@ internal sealed class PlayCommand : Command<PlaySettings>
             {
                 AnsiConsole.MarkupLine($"[green]Moved[/] {FormatCoord(moved.From)} -> {FormatCoord(moved.To)}");
             }
+        }
+
+        try
+        {
+            SessionStore.Save(state);
+        }
+        catch (Exception ex)
+        {
+            AnsiConsole.MarkupLine($"[red]Failed to persist session:[/] {ex.Message}");
+            return 1;
         }
 
         BoardRenderer.Render(state);
