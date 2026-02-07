@@ -34,7 +34,12 @@ public class ArchitectureBoundaryTests
 
     private static void AssertArchitectureRule(TestResult result)
     {
-        var failingTypes = string.Join(", ", result.FailingTypeNames ?? []);
-        Assert.True(result.IsSuccessful, $"Architecture rule failed for types: {failingTypes}");
+        var realFailingTypes = (result.FailingTypeNames ?? [])
+            .Where(typeName => !typeName.StartsWith("Coverlet.Core.Instrumentation.Tracker.", StringComparison.Ordinal))
+            .ToArray();
+
+        Assert.True(
+            realFailingTypes.Length == 0,
+            $"Architecture rule failed for types: {string.Join(", ", realFailingTypes)}");
     }
 }
