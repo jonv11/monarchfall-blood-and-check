@@ -42,6 +42,12 @@ MFBC requires reproducible runs for testing, debugging, and player sharing. The 
 - Action log must be complete and ordered to ensure replay validity.
 - Engine must preserve stable ordering within a given version.
 
+## Core Integration Notes
+
+- `MFBC.Core` exposes `IRandomSource` as the abstraction for deterministic randomness.
+- `DeterministicRandomSource` derives named stream state from a run seed.
+- Core code should consume injected `IRandomSource` instances instead of creating ad-hoc random generators.
+
 ## Open Questions
 
 - None in this document. Related questions may appear in serialization or testing documents.
