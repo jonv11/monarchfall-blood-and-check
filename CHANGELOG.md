@@ -7,7 +7,7 @@ All notable changes to Monarchfall: Blood & Check are documented in this file.
 ### Added
 
 - Codecov coverage reporting in CI with coverage badge
-- Coverage threshold policy documentation (80% minimum, hard-fail PR checks)
+- Coverage policy documentation aligned with current CI behavior
 - Local Development Setup Guide with platform-specific instructions and troubleshooting
 - ADR process guide with standardized template and status values
 - Decision index for all architectural decision records
@@ -28,6 +28,8 @@ All notable changes to Monarchfall: Blood & Check are documented in this file.
 - Prompt for drafting Jira tickets from raw notes
 - CLI uses Spectre.Console.Cli and Spectre.Console for command parsing and rendering
 - CLI commands: new, show, play (session-based, minimal v0 workflow)
+- Repository truth-source consistency pass for README/CONTRIBUTING/CHANGELOG
+- Doc maintenance checklist for periodic truth-source verification
 
 ## [0.0.0] — 2026-02-04
 
