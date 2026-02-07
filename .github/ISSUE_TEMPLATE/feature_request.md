@@ -30,7 +30,7 @@ assignees: ''
 <!-- Does this feature have any architectural implications? Reference the [Architecture Overview](../../docs/architecture/overview.md) if needed. -->
 
 ## Naming / Style Implications
-<!-- Does this introduce new classes, methods, or patterns? Reference the [Naming Conventions Guide](../../docs/naming-conventions.md) if relevant. -->
+<!-- Does this introduce new classes, methods, or patterns? Reference the [Naming Conventions Guide](../../docs/development/naming-conventions.md) if relevant. -->
 
 ## Additional Context
 <!-- Add any other context, sketches, or examples here. -->

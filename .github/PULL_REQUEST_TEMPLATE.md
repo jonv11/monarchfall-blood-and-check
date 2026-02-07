@@ -34,7 +34,7 @@ dotnet test
 ```
 
 ## Checklist
-- [ ] Code follows the [Naming Conventions & Style Guide](../../docs/naming-conventions.md)
+- [ ] Code follows the [Naming Conventions & Style Guide](../../docs/development/naming-conventions.md)
 - [ ] Changes comply with the [Architecture Rules](../../docs/architecture/overview.md) (MFBC.Core has no CLI dependencies)
 - [ ] All new logic in `MFBC.Core` has corresponding unit tests in `MFBC.Core.Tests`
 - [ ] Tests pass locally: `dotnet test`

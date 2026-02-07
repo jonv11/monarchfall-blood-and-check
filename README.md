@@ -8,7 +8,7 @@ A chess roguelite engine with CLI-first architecture. Procedurally generated che
 
 ## Quick Start
 
-For detailed setup instructions, see [Local Development Setup Guide](docs/local-setup.md).
+For detailed setup instructions, see [Local Development Setup Guide](docs/development/local-setup.md).
 
 ```bash
 # Build the project
@@ -39,7 +39,7 @@ dotnet test
 
 See `.github/copilot-instructions.md` for agent guidance.
 
-For AI agents working on MFBC, see [AI Prompt Crafting Guidelines](docs/prompt-crafting-guide.md) for best practices on crafting high-quality prompts with grounding, verification checkpoints, and hallucination prevention.
+For AI agents working on MFBC, see [AI Prompt Crafting Guidelines](docs/agent/prompt-crafting-guide.md) for best practices on crafting high-quality prompts with grounding, verification checkpoints, and hallucination prevention.
 
 ## Roadmap
 
@@ -55,29 +55,29 @@ For architectural context, see [architecture overview](docs/architecture/overvie
 
 Before implementation, comprehensive technical decisions have been documented:
 
-- [Core Domain Model](docs/core-domain-model.md) — Board, tiles, pieces, and invariants
-- [Core ↔ CLI Contract](docs/core-cli-contract.md) — API surface and responsibilities
-- [Move Representation](docs/move-representation.md) — Action model and validation flow
-- [Rule Engine Design](docs/rule-engine-design.md) — Phased execution and rule categories
-- [Events, Effects, and Mutation](docs/events-effects-mutation.md) — State change model
-- [RNG and Determinism](docs/rng-determinism-replay.md) — Seed strategy and replay
-- [Serialization](docs/serialization-save-load.md) — Save/load and versioning
-- [Testing Strategy](docs/testing-strategy.md) — Test categories and determinism guarantees
-- [Dependency Boundaries](docs/dependency-boundaries.md) — Layering enforcement
+- [Core Domain Model](docs/architecture/core-domain-model.md) — Board, tiles, pieces, and invariants
+- [Core ↔ CLI Contract](docs/architecture/core-cli-contract.md) — API surface and responsibilities
+- [Move Representation](docs/architecture/move-representation.md) — Action model and validation flow
+- [Rule Engine Design](docs/architecture/rule-engine-design.md) — Phased execution and rule categories
+- [Events, Effects, and Mutation](docs/architecture/events-effects-mutation.md) — State change model
+- [RNG and Determinism](docs/architecture/rng-determinism-replay.md) — Seed strategy and replay
+- [Serialization](docs/architecture/serialization-save-load.md) — Save/load and versioning
+- [Testing Strategy](docs/development/testing-strategy.md) — Test categories and determinism guarantees
+- [Dependency Boundaries](docs/architecture/dependency-boundaries.md) — Layering enforcement
 
 ## Contributing
 
 Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
-**Jira Conventions:** See [Jira Conventions & Process Guide](docs/jira-conventions.md) for issue types, workflow, and best practices for creating and managing work items.
+**Jira Conventions:** See [Jira Conventions & Process Guide](docs/jira/jira-conventions.md) for issue types, workflow, and best practices for creating and managing work items.
 
-**Jira Templates:** See [Jira Work Item Templates](docs/jira-templates.md) for copy-paste-ready templates (Epic, Feature, Task, Subtask) with filled examples.
+**Jira Templates:** See [Jira Work Item Templates](docs/jira/jira-templates.md) for copy-paste-ready templates (Epic, Feature, Task, Subtask) with filled examples.
 
 **Jira Board:** https://jonv11.atlassian.net/jira/software/projects/MFBC/boards/1
 
 ### Security
 
-See [DEPENDENCY_UPDATES.md](docs/DEPENDENCY_UPDATES.md) for information about dependency updates and vulnerability handling.
+See [Dependency Updates](docs/operations/dependency-updates.md) for information about dependency updates and vulnerability handling.
 
 ## License
 
