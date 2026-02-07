@@ -90,9 +90,23 @@ See [Architecture Overview](docs/architecture/overview.md) for details.
 
 ## Coverage Policy
 
-- **Minimum coverage target:** 80% overall coverage for the default branch
-- **PR gating:** Coverage status checks are **hard-fail** for PRs targeting `main`
-- Coverage is reported via Codecov in CI and must pass before merge
+- CI runs tests with `--collect:"XPlat Code Coverage"` and uploads Cobertura reports to Codecov
+- The current CI workflow fails if the Codecov upload step errors (`fail_ci_if_error: true`)
+- A numeric coverage threshold is not currently enforced in `.github/workflows/ci.yml`
+- Continue to add/maintain tests for all behavior changes, especially in `MFBC.Core`
+
+## Documentation Truth-Source Checklist
+
+When changing behavior, workflow, or policy, verify these files remain aligned:
+
+- `README.md`: project status and high-traffic onboarding statements reflect current implementation
+- `CONTRIBUTING.md`: local commands and CI expectations match `.github/workflows/*.yml`
+- `CHANGELOG.md`: entries reflect shipped or actively unreleased work without contradictory policy claims
+
+Suggested cadence:
+
+- During PR creation: verify any touched docs are factually aligned
+- During release prep: run one top-level docs consistency pass across README/CONTRIBUTING/CHANGELOG
 
 ## Decision Making
 

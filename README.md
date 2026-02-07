@@ -4,7 +4,7 @@
 
 A chess roguelite engine with CLI-first architecture. Procedurally generated chessboards, dynamic rules, and permadeath progression—exploring the convergence of chess mechanics and roguelike design.
 
-**Current Status:** Scaffold only. Initial project structure and build infrastructure ready for development.
+**Current Status:** Early playable foundation. Core board/piece/action logic and a minimal CLI loop (`new`, `show`, `play`) are implemented, with roadmap phases continuing in incremental slices.
 
 ## Quick Start
 
