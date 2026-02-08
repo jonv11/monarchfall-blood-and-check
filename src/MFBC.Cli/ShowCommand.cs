@@ -3,9 +3,9 @@ using Spectre.Console.Cli;
 
 namespace MFBC.Cli;
 
-internal sealed class ShowCommand : Command<CommandSettings>
+internal sealed class ShowCommand : Command<ShowSettings>
 {
-    public override int Execute(CommandContext context, CommandSettings settings)
+    public override int Execute(CommandContext context, ShowSettings settings)
     {
         if (!SessionStore.TryLoad(out var state, out var errorMessage))
         {
@@ -22,4 +22,8 @@ internal sealed class ShowCommand : Command<CommandSettings>
         BoardRenderer.Render(state);
         return 0;
     }
+}
+
+internal sealed class ShowSettings : CommandSettings
+{
 }
