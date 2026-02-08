@@ -92,8 +92,9 @@ See [Architecture Overview](docs/architecture/overview.md) for details.
 ## Coverage Policy
 
 - CI runs tests with `--collect:"XPlat Code Coverage"` and uploads Cobertura reports to Codecov
-- The current CI workflow fails if the Codecov upload step errors (`fail_ci_if_error: true`)
-- A numeric coverage threshold is not currently enforced in `.github/workflows/ci.yml`
+- CI enforces a minimum aggregated line coverage threshold of **60%** from Cobertura reports
+- `codecov.yml` mirrors this baseline with a **60%** target for project and patch status
+- The current CI workflow also fails if the Codecov upload step errors (`fail_ci_if_error: true`)
 - Continue to add/maintain tests for all behavior changes, especially in `MFBC.Core`
 
 ## Documentation Truth-Source Checklist
