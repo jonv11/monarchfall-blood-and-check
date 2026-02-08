@@ -30,7 +30,40 @@ jobs:
       - name: Run tests with coverage
         run: dotnet test MFBC.sln --no-build --verbosity normal --configuration Release --collect:"XPlat Code Coverage" --results-directory ./TestResults
 
+      - name: Enforce coverage threshold
+        shell: pwsh
+        run: |
+          $threshold = 0.60
+          $files = Get-ChildItem -Path ./TestResults -Recurse -Filter coverage.cobertura.xml
+          if ($files.Count -eq 0) {
+            throw "No coverage.cobertura.xml files found in ./TestResults."
+          }
+
+          $totalCovered = 0
+          $totalValid = 0
+          foreach ($file in $files) {
+            [xml]$coverageXml = Get-Content -Path $file.FullName
+            $covered = [int]$coverageXml.coverage.'lines-covered'
+            $valid = [int]$coverageXml.coverage.'lines-valid'
+            $totalCovered += $covered
+            $totalValid += $valid
+            Write-Host "Coverage input: $($file.FullName) covered=$covered valid=$valid"
+          }
+
+          if ($totalValid -le 0) {
+            throw "Coverage report contains zero valid lines."
+          }
+
+          $coverage = $totalCovered / [double]$totalValid
+          Write-Host ("Aggregated line coverage: {0:P2}" -f $coverage)
+          Write-Host ("Minimum required line coverage: {0:P2}" -f $threshold)
+
+          if ($coverage -lt $threshold) {
+            throw ("Coverage threshold not met. Required {0:P2}, got {1:P2}." -f $threshold, $coverage)
+          }
+
       - name: Upload coverage to Codecov
+        if: always()
         uses: codecov/codecov-action@v4
         with:
           files: ./TestResults/**/coverage.cobertura.xml

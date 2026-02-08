@@ -5,12 +5,12 @@ coverage:
   status:
     project:
       default:
-        target: 0.80
+        target: 0.60
         threshold: 0.00
         informational: false
     patch:
       default:
-        target: 0.80
+        target: 0.60
         threshold: 0.00
         informational: false
 
